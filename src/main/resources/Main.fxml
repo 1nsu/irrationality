@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="900.0">
+         <left>
+            <VBox prefHeight="561.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Rotation" />
+                  <TextField text="0" fx:id="textFieldValue" onAction="#changeValue"/>
+                  <HBox prefHeight="15.0" prefWidth="190.0" spacing="10.0">
+                     <children>
+                        <Label text="Angle:" />
+                        <Label text="0°" />
+                     </children>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="29.0" prefWidth="190.0" spacing="5.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Auto incr" fx:id="buttonAutoIncr" onAction="#toggleAutoIncr"/>
+                        <Button mnemonicParsing="false" text="Auto decr" fx:id="buttonAutoDecr" onAction="#toggleAutoDecr"/>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <HBox prefHeight="20.0" prefWidth="190.0" spacing="10.0">
+                     <children>
+                        <Label text="Amount of particles:" />
+                        <Label text="50" fx:id="labelParticleCount"/>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </HBox>
+                  <Slider max="200.0" min="10.0" value="50.0" fx:id="sliderParticleCount" onDragDone="#updateLabelParticleCount"/>
+                  <Separator prefWidth="200.0" />
+                  <FlowPane hgap="5.0" prefHeight="67.0" prefWidth="190.0" vgap="5.0">
+                     <children>
+                        <Button mnemonicParsing="false" fx:id="buttonSetToPi" onAction="#setValueToPi" text="1/π" />
+                        <Button mnemonicParsing="false" fx:id="buttonSetToEuler" onAction="#setValueToEuler" text="1/e" />
+                        <Button mnemonicParsing="false" fx:id="buttonSetToSqrtTwo" onAction="#setValueToSqrtTwo" text="1/√2" />
+                        <Button mnemonicParsing="false" fx:id="buttonSetToSqrtFive" onAction="#setValueToSqrtFive" text="(√5-1)/2" />
+                        <Button mnemonicParsing="false" fx:id="buttonSetToPhi" onAction="#setValueToPhi" text="φ" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </FlowPane>
+                  <Separator prefWidth="200.0" />
+                  <VBox prefHeight="69.0" prefWidth="190.0" spacing="5.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false" fx:id="checkBoxShowCenter" text="Show center" onAction="#showCenter" />
+                        <CheckBox mnemonicParsing="false" fx:id="checkBoxShowDots" text="Show dots" onAction="#showDots" />
+                        <CheckBox mnemonicParsing="false" fx:id="checkBoxShowFlower" text="Show flower" onAction="#showFlower" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <center>
+            <Canvas height="500.0" width="500.0" fx:id="canvas" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" onAction="#exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Clear" onAction="#reset" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" onAction="#showHelp" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top></BorderPane>
+   </children>
+</AnchorPane>
